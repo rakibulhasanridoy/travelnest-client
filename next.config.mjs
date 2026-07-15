@@ -9,7 +9,6 @@ const nextConfig = {
       { protocol: "https", hostname: "i.ibb.co" },
     ],
   },
-  // Proxy /api/* calls → Express server
   async rewrites() {
     return [
       {
@@ -18,6 +17,6 @@ const nextConfig = {
       },
     ];
   },
-};                        
+};
 
-export default nextConfig; 
+export default nextConfig;
