@@ -126,7 +126,7 @@ export default function AddPackagePage() {
                       ].map(({ k, label, ph }) => (
                         <div key={k}>
                           <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">{label} <span className="text-red-500">*</span></label>
-                          <input value={(form as Record<string,string>)[k]} onChange={(e) => set(k, e.target.value)}
+                          <input value={(form as Record<string, unknown>)[k] as string} onChange={(e) => set(k, e.target.value)}
                             placeholder={ph} className={fCls(k)}/>
                           {errors[k] && <p className="mt-1 text-xs text-red-500">⚠ {errors[k]}</p>}
                         </div>
@@ -149,7 +149,7 @@ export default function AddPackagePage() {
                       ].map(({ k, label, ph, type }) => (
                         <div key={k}>
                           <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">{label} {k!=="originalPrice" && <span className="text-red-500">*</span>}</label>
-                          <input type={type} min="0" value={(form as Record<string,string>)[k]}
+                          <input type={type} min="0" value={(form as Record<string, unknown>)[k] as string}
                             onChange={(e) => set(k, e.target.value)} placeholder={ph} className={fCls(k)}/>
                           {errors[k] && <p className="mt-1 text-xs text-red-500">⚠ {errors[k]}</p>}
                         </div>

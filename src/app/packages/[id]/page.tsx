@@ -341,7 +341,7 @@ export default function PackageDetailPage() {
           ].map(({ label, type, key, min, required }) => (
             <div key={key}>
               <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">{label} {required && <span className="text-red-500">*</span>}</label>
-              <input type={type} min={min} required={required} value={(bForm as Record<string, string|number>)[key] as string}
+              <input type={type} min={min} required={required} value={(bForm as unknown as Record<string, unknown>)[key] as string}
                 onChange={(e) => setBForm({ ...bForm, [key]: e.target.value })} className="input-field"/>
             </div>
           ))}
