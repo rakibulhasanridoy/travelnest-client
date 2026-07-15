@@ -9,12 +9,13 @@ const nextConfig = {
       { protocol: "https", hostname: "i.ibb.co" },
     ],
   },
-  // Proxy /api/* calls → Express server during development
+  // Proxy /api/* calls → Express server
   async rewrites() {
     return [
       {
         source:      "/api/:path*",
-        destination: `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000"}/api/:path*`,
+-       destination: `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000"}/api/:path*`,
++       destination: `${process.env.API_SERVER_URL || "http://localhost:5000"}/api/:path*`,
       },
     ];
   },
